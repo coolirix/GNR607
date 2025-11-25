@@ -26,8 +26,8 @@ def analyze_and_report(image_path=None):
     clahe = cv2.createCLAHE(clipLimit=1000.0, tileGridSize=(8,8))
     clahe_img = clahe.apply(original_img)
 
-    cv2.imwrite(r'C:\Users\GARVIT\Downloads\enhanced_he_image.png', he_img)
-    cv2.imwrite(r'C:\Users\GARVIT\Downloads\enhanced_ahe_image.png', clahe_img)
+    cv2.imwrite("enhanced_he_image.png", he_img)
+    cv2.imwrite("enhanced_ahe_image.png", clahe_img)
 
     ent_orig = calculate_entropy(original_img)
     ent_he = calculate_entropy(he_img)
@@ -78,7 +78,7 @@ def analyze_and_report(image_path=None):
         plt.title(titles[i])
         plt.xlim([0, 256])
         plt.grid(alpha=0.3)
-        plt.savefig(fr"C:\Users\GARVIT\Downloads\graph_{titles[i].replace(' ', '_')}.png")
+        plt.savefig(f"graph_{titles[i].replace(' ', '_')}.png")
         plt.close()
 
     for ax in axs[0]: ax.axis('off')
@@ -86,5 +86,6 @@ def analyze_and_report(image_path=None):
     plt.show()
 
 if __name__ == "__main__":
-    image_path = r'C:\Users\GARVIT\Downloads\remotesensing-09-00025-g001a_1.png' 
+    image_path = "remotesensing-09-00025-g001a_1.png" 
+
     analyze_and_report(image_path)
